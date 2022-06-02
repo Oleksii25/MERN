@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "lymonovmern",
+  "mongoUri": "mongodb+srv://lymonov-oleksii:Germany123@cluster0.eiy1f.mongodb.net/app?retryWrites=true&w=majority"
+}
