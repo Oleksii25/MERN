@@ -1,8 +1,9 @@
 import React from "react";
+
 const DetailPage = () => {
   return (
     <div>
-      <h1>Detail</h1>
+      <h1>Detafil</h1>
     </div>
   )
 }
