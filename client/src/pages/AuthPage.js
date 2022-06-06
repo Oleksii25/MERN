@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { useHttp } from "../hooks/htttp.hook";
 import { useMessage } from "../hooks/message.hook";
 
@@ -7,7 +8,7 @@ const AuthPage = () => {
     email: '',
     password: ''
   })
-
+  const { login } = useContext(AuthContext);
   const { loading, request, err, clearErr } = useHttp();
   const showMessage = useMessage();
 
@@ -23,6 +24,7 @@ const AuthPage = () => {
   const handleLogin = async () => {
     try {
       const data = await request('/api/auth/login', 'POST', { ...form });
+      login(data.token, data.userId)
       showMessage(data.message)
     } catch (error) {
 
@@ -56,6 +58,7 @@ const AuthPage = () => {
                   className="validate"
                   onChange={handleChange}
                   name="email"
+                  value={form.email}
                 />
                 <label htmlFor="email">Email</label>
               </div>
@@ -66,6 +69,7 @@ const AuthPage = () => {
                   className="validate"
                   onChange={handleChange}
                   name="password"
+                  value={form.password}
                 />
                 <label htmlFor="password">Password</label>
               </div>

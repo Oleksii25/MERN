@@ -9,7 +9,6 @@ export const useRoutes = (isAuth) => {
       <Routes>
         <Route path="/links" exact element={<LinksPage />} />
         <Route path="/create" exact element={<CreatePage />} />
-
         <Route path="/detail/:id" exact element={<DetailPage />} />
         <Route path="*" element={<Navigate to="/create" replace />} />
       </Routes>
