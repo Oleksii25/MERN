@@ -1,16 +1,21 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { useHttp } from "../hooks/htttp.hook";
+import { useApi, useHttp } from "../hooks";
+import { createLinkApi } from "api/link.api";
+
 const CreatePage = () => {
   const navigate = useNavigate();
   const { token } = useContext(AuthContext);
-  const { request } = useHttp()
+  // const { request } = useHttp()
   const [link, setLink] = useState('');
+  const { request } = useApi(createLinkApi);
+
+
 
   const handlePress = async (event) => {
     if (event.key === 'Enter') {
-      const data = await request('api/links/generate', "POST", { from: link }, { Authorization: `Bearer ${token}` });
+      const data = await request({ data: { from: link }, token });
       navigate(`/detail/${data.link._id}`)
     }
   }

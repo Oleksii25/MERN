@@ -1,9 +1,9 @@
 import 'materialize-css';
 import { useRoutes } from './routes';
 import { BrowserRouter } from 'react-router-dom';
-import { useAuth } from './hooks/auth.hook';
-import { AuthContext } from './context/AuthContext';
-import NavBar from './components/NavBar';
+import { useAuth } from 'hooks';
+import { AuthContext } from 'context/AuthContext';
+import NavBar from 'components/NavBar';
 
 function App() {
   const { login, logout, userId, token } = useAuth();
