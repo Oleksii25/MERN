@@ -27,7 +27,7 @@ router.post('/generate', auth, async (req, res) => {
 
     await newLink.save()
 
-    res.status(200).json({ link })
+    res.status(200).json({ link: newLink })
 
   } catch (error) {
     return res.status(500).json({ message: 'Something went wrong with creating' })
