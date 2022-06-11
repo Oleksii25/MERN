@@ -1,0 +1,71 @@
+.player {
+  height: 100vh;
+  background: url('./images/Bg.webp') no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+
+.player_buttons {
+  width: 30%;
+  border: solid orange 2px;
+  border-radius: 15px;
+  background-color: lightskyblue;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 200px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+button:nth-child(n) {
+  width: 20%;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.backward {}
+
+.backward svg {
+  transform: rotate(180deg);
+}
+
+.play {}
+
+
+.pause {}
+
+
+.forward {}
+
+.info_container {
+  width: 50%;
+  height: 30px;
+  border: solid green 2px;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 260px;
+  background-color: lightcyan;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.range_container {
+  width: 85%;
+  height: 15px;
+  border: solid 1px black;
+  border-radius: 10px;
+}
+
+.range {
+  background-color: burlywood;
+  height: 100%;
+  border-radius: 5px;
+}
