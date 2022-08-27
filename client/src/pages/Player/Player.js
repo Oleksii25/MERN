@@ -31,7 +31,10 @@ const Player = () => {
 
   const audioRef = useRef(new Audio(playList[currentMusic].src));
   const intervalRef = useRef();
+  const progressRef = useRef(null);
   // const isReady = useRef(false);
+
+  console.log('progres', progress)
 
   console.log('render')
 
@@ -49,32 +52,55 @@ const Player = () => {
     }
   };
 
+  const startTimer = () => {
+    // Clear any timers already running
+    clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      console.log('now')
+      if (audioRef.current.ended) {
+        handleNext();
+      } else {
+        setProgress(audioRef.current.currentTime);
+      }
+    }, [1000]);
+  }
+
   useEffect(() => {
     setIsReady(true)
   }, [])
 
   useEffect(() => {
-    console.log('cure', playList[currentMusic].src)
     if (isReady) {
       audioRef.current.pause()
       audioRef.current = new Audio(playList[currentMusic].src);
-      isPlaying && audioRef.current.play()
+      isPlaying && audioRef.current.play();
+      startTimer();
     }
   }, [currentMusic])
 
   useEffect(() => {
     if (isPlaying) {
-      audioRef.current.play()
+      audioRef.current.play();
+      startTimer();
     } else {
+      clearInterval(intervalRef.current);
       audioRef.current.pause()
     }
   }, [isPlaying])
 
+  const onClick = (e) => {
+    console.log(e)
+    if (progressRef.current) {
+      console.log('ref', progressRef.current)
+    }
+  }
+
   return (
     <div className={styles.player}>
       <div className={styles.info_container}>
-        <div className={styles.range_container}>
-          <div className={styles.range} style={{ width: `${progress}%` }}>
+        <div className={styles.range_container} ref={progressRef} onClick={onClick} >
+          <div className={styles.range} style={{ width: `${progress}%` }} >
           </div>
         </div>
         <div className={styles.time}>

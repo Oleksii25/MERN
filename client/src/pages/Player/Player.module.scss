@@ -40,7 +40,11 @@ button:nth-child(n) {
 .pause {}
 
 
-.forward {}
+.forward svg {}
+
+svg {
+  height: 100%;
+}
 
 .info_container {
   width: 50%;

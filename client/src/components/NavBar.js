@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import music from '../pages/Player/music/believer.mp3'
+
+import styles from './NavBar.module.scss';
 
 const NavBar = () => {
   const { logout } = useContext(AuthContext);
@@ -13,13 +16,19 @@ const NavBar = () => {
   }
 
   return (
-    <nav>
-      <div className="nav-wrapper blue darken-1">
-        <span to="/" className="brand-logo">Logo</span>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><NavLink to='/create'>Create</NavLink></li>
-          <li><NavLink to="/links">Links</NavLink></li>
-          <li><a href="/" onClick={handleLogout}>Logout</a></li>
+    <nav className={styles.navbar}>
+      <div className={styles.navbar_container}>
+        <NavLink to="/" className={styles.navbar_logo}>Logo</NavLink>
+        <ul className={styles.navbar_list}>
+          <li className={styles.navbar_item}>
+            <NavLink to='/create'>Create</NavLink>
+          </li>
+          <li className={styles.navbar_item}>
+            <NavLink to="/links">Links</NavLink>
+          </li>
+          <li className={styles.navbar_item}>
+            <a href="/" onClick={handleLogout}>Logout</a>
+          </li>
         </ul>
       </div>
     </nav>
