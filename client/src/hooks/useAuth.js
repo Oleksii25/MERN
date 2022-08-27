@@ -1,9 +1,9 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 
 const storageName = 'userData';
 
 export const useAuth = () => {
-  const { token: storegToken, userId: storageId } = JSON.parse(localStorage.getItem(storageName));
+  const { token: storegToken, userId: storageId } = JSON.parse(localStorage.getItem(storageName)) || {};
   const [token, setToken] = useState(storegToken || null);
   const [userId, setUserId] = useState(storageId || null);
 

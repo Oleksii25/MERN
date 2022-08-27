@@ -6,6 +6,9 @@ import { emailRules, passRules } from "./constants";
 import { useApi } from "hooks/useApi";
 import { loginApi } from 'api/login.api';
 import { registrationApi } from "api/registration.api";
+import Button from "components/Button/Button";
+
+import styles from './AuthPage.module.scss';
 
 const AuthPage = () => {
   const { login } = useContext(AuthContext);
@@ -50,14 +53,13 @@ const AuthPage = () => {
   }, [apiLogin.loading, apiRegistr.loading])
 
   return (
-    <div className="row">
-      <div className="col s6 offset-s3">
-        <h1>Login</h1>
-        <div className="card blue darken-1">
-          <div className="card-content white-text">
-            <span className="card-title">Authorization</span>
+    <div className={styles.authPage}>
+      <div className={styles.authPage__popup}>
+        <h1>Authorization</h1>
+        <div className={styles.authPage__fields}>
+          <div className={styles.authPage__inputs}>
             <div>
-              <div className="input-field">
+              <div className={styles.authPage__email}>
                 <input
                   type="email"
                   className="validate"
@@ -68,7 +70,7 @@ const AuthPage = () => {
                 <label htmlFor="email">Email</label>
                 <ValidationMessages validation={email.validation} isDirty={email.isDirty} />
               </div>
-              <div className="input-field">
+              <div className={styles.authPage__password}>
                 <input
                   type="password"
                   className="validate"
@@ -81,18 +83,21 @@ const AuthPage = () => {
               </div>
             </div>
           </div>
-          <div className="card-action">
-            <button
-              className="btn yellow darken-4"
+          <div className={styles.authPage__buttons}>
+            <Button
+              className={`${styles.authPage__button}`}
               onClick={handleLogin}
               disabled={isLoading || !isValidForm}
-            >Login</button>
-            <button
-              className="btn grey lighten-1 black-text"
+            >
+              Login
+            </Button>
+            <Button
+              className={`${styles.authPage__button}`}
               onClick={handleRegister}
               disabled={isLoading || !isValidForm}
-            >Registration
-            </button>
+            >
+              Registration
+            </Button>
           </div>
         </div>
       </div>

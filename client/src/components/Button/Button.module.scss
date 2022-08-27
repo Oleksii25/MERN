@@ -1,0 +1,10 @@
+.button {
+  height: 32px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &_primary {
+    background-color: rgb(114, 240, 244);
+  }
+}
