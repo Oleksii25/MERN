@@ -11,8 +11,6 @@ const CreatePage = () => {
   const [link, setLink] = useState('');
   const { request } = useApi(createLinkApi);
 
-
-
   const handlePress = async (event) => {
     if (event.key === 'Enter') {
       const data = await request({ data: { from: link }, token });

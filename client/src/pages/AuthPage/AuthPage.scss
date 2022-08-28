@@ -1,0 +1,38 @@
+.authPage {
+  height: 100vh;
+  background: linear-gradient(rgb(95, 241, 95), rgb(84, 218, 248));
+  padding: 100px 80px;
+
+  &__popup {
+    height: fit-content;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: rgb(102, 207, 242);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 0 15px rgb(255, 0, 174);
+  }
+
+  &__buttons {
+    margin-top: 15px;
+  }
+
+  &__button {
+    margin-right: 5px;
+  }
+
+  &__logo {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 420px) {
+  .authPage {
+    padding: 100px 20px;
+
+    &__logo {
+      margin-bottom: 40px;
+    }
+  }
+}

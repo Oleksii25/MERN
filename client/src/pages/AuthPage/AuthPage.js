@@ -7,8 +7,9 @@ import { useApi } from "hooks/useApi";
 import { loginApi } from 'api/login.api';
 import { registrationApi } from "api/registration.api";
 import Button from "components/Button/Button";
+import Input from "components/Input/Input";
 
-import styles from './AuthPage.module.scss';
+import styles from './AuthPage.scss';
 
 const AuthPage = () => {
   const { login } = useContext(AuthContext);
@@ -54,33 +55,30 @@ const AuthPage = () => {
 
   return (
     <div className={styles.authPage}>
+      <div className={styles.authPage__logo}>Logo</div>
       <div className={styles.authPage__popup}>
         <h1>Authorization</h1>
         <div className={styles.authPage__fields}>
           <div className={styles.authPage__inputs}>
-            <div>
-              <div className={styles.authPage__email}>
-                <input
-                  type="email"
-                  className="validate"
-                  onChange={email.onChange}
-                  onBlur={email.onBlur}
-                  value={email.value}
-                />
-                <label htmlFor="email">Email</label>
-                <ValidationMessages validation={email.validation} isDirty={email.isDirty} />
-              </div>
-              <div className={styles.authPage__password}>
-                <input
-                  type="password"
-                  className="validate"
-                  onChange={password.onChange}
-                  onBlur={password.onBlur}
-                  value={password.value}
-                />
-                <label htmlFor="password">Password</label>
-                <ValidationMessages validation={password.validation} isDirty={password.isDirty} />
-              </div>
+            <div className={styles.authPage__email}>
+              <Input
+                type="email"
+                onChange={email.onChange}
+                onBlur={email.onBlur}
+                value={email.value}
+                label='Email'
+              />
+              <ValidationMessages validation={email.validation} isDirty={email.isDirty} />
+            </div>
+            <div className={styles.authPage__password}>
+              <Input
+                type="password"
+                onChange={password.onChange}
+                onBlur={password.onBlur}
+                value={password.value}
+                label='Password'
+              />
+              <ValidationMessages validation={password.validation} isDirty={password.isDirty} />
             </div>
           </div>
           <div className={styles.authPage__buttons}>

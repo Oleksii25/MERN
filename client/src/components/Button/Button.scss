@@ -3,8 +3,14 @@
   padding: 6px 10px;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s;
 
   &_primary {
     background-color: rgb(114, 240, 244);
+  }
+
+  &:hover {
+    box-shadow: 0 0 5px rgb(34, 255, 34);
+    color: #fff;
   }
 }

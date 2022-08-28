@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import styles from './Button.module.scss';
+import styles from './Button.scss';
 
 const Button = ({ children, onClick, theme = 'primary', className, disabled }) => {
   const currentStyles = useMemo(() => {

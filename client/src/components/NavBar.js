@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import music from '../pages/Player/music/believer.mp3'
 
-import styles from './NavBar.module.scss';
+import styles from './NavBar.scss';
 
 const NavBar = () => {
   const { logout } = useContext(AuthContext);

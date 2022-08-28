@@ -11,11 +11,11 @@ export const useRoutes = (isAuth) => {
   if (isAuth) {
     return (
       <Routes>
-        <Route path="/links" exact element={<LinksPage />} />
-        <Route path="/create" exact element={<CreatePage />} />
+        <Route path="links" exact element={<LinksPage />} />
+        <Route path="create" exact element={<CreatePage />} />
         <Route path="/detail/:id" exact element={<DetailPage />} />
         <Route path="/player" exact element={<Player />} />
-        <Route path="*" element={<Navigate to="/create" replace />} />
+        <Route path="*" element={<Navigate to="create" replace />} />
       </Routes>
     )
   }
