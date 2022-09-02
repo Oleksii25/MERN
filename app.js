@@ -1,12 +1,19 @@
 const express = require('express');
 const config = require('config');
 const mongoose = require('mongoose');
+const path = require('path')
 
 const app = express();
 app.use(express.json({ extended: true }))
 
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/links', require('./routes/link.routes'));
+app.get('*', (req, res) => {
+  const index = path.join(__dirname, './client/public/index.html');
+  const styles = path.join(__dirname, './client/public/main-b4dc54c0.css');
+  res.sendFile(index, styles);
+})
+
 
 const PORT = config.get('port') || 5000;
 const MONGO_URI = config.get('mongoUri');
