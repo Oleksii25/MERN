@@ -31,7 +31,7 @@ const CreatePage = () => {
             value={link}
             onKeyPress={handlePress}
           />
-          <label htmlFor="email">input a link</label>
+          <label htmlFor="link">input a link</label>
         </div>
       </div>
     </div>
